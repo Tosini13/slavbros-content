@@ -48,6 +48,6 @@ RUN chown -R node:node /opt/app
 USER node
 
 EXPOSE 1337
-ENV DATABASE_URL="file:///.tmp/data.db"
+ENV DATABASE_URL="file:///data/sqlite.db"
 CMD ["npm", "run", "start"]
 
