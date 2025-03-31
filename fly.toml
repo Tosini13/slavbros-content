@@ -10,7 +10,7 @@ primary_region = 'mad'
 
 [[mounts]]
   source = 'data'
-  destination = '/data'
+  destination = '/.tmp'
 
 [http_service]
   internal_port = 1337

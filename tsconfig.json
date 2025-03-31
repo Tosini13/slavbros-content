@@ -31,7 +31,7 @@
     "build/",
     "dist/",
     ".cache/",
-    "data/",
+    ".tmp/",
 
     // Do not include admin files in the server compilation
     "src/admin/",
