@@ -8,9 +8,13 @@ primary_region = 'mad'
 
 [build]
 
+[env]
+DATABASE_FILENAME='/strapi_data/strapi.db'
+DATABASE_CLIENT='sqlite'
+
 [[mounts]]
-  source = 'data'
-  destination = '/.tmp'
+  source="strapi_app_data"
+  destination="/strapi_data"
 
 [http_service]
   internal_port = 1337
