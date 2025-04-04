@@ -1,13 +1,28 @@
 version: "3.9"
 services:
+  slavbros-cms-db:
+    container_name: slavbros-content-postgres-dev
+    image: postgres:14
+    platform: linux/amd64 #for platform error on Apple M1 chips
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    env_file:
+      - ./.env
+    volumes:
+      - ./volumes/cms-db/:/var/lib/postgresql/data
+    networks:
+      - slavBrosContent
   slavbros-cms-dev:
-    container_name: slavbros-strapi-cms-dev
+    container_name: slavbros-content-strapi-dev
     build:
       context: .
       dockerfile: Dockerfile.dev
     restart: unless-stopped
     env_file:
       - ./.env
+    environment:
+      DATABASE_HOST: slavbros-content-postgres-dev
     volumes:
       - ./config:/opt/app/config
       - ./src:/opt/app/src
@@ -16,3 +31,11 @@ services:
       - ./public/uploads:/opt/app/public/uploads
     ports:
       - "1337:1337"
+    networks:
+      - slavBrosContent
+    depends_on:
+      - slavbros-cms-db
+
+networks:
+  slavBrosContent:
+    driver: bridge
