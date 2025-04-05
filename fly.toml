@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for slavbros-content on 2025-03-28T14:16:02Z
+# fly.toml app configuration file generated for slavbros-content on 2025-04-05T10:36:24+02:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -9,11 +9,11 @@ primary_region = 'mad'
 [build]
 
 [env]
-DATABASE_FILENAME='/strapi_data/strapi.db'
-DATABASE_CLIENT='sqlite'
+  DATABASE_CLIENT = 'sqlite'
+  DATABASE_FILENAME = '/strapi_data/strabi.db'
 
 [[mounts]]
-  source="data"
+  source="strapi_sqlite_data"
   destination="/strapi_data"
 
 [http_service]

@@ -71,6 +71,7 @@ data
 *.sql
 *.sqlite
 *.sqlite3
+strapi_data
 
 
 ############################
