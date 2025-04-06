@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "nutricionez_articles",
+  "info": {
+    "singularName": "nutricionez-article",
+    "pluralName": "nutricionez-articles",
+    "displayName": "(nutricionez) articles"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}
