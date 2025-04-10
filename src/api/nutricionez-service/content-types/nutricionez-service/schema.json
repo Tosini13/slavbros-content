@@ -4,7 +4,8 @@
   "info": {
     "singularName": "nutricionez-service",
     "pluralName": "nutricionez-services",
-    "displayName": "(nutricionez) services"
+    "displayName": "(nutricionez) services",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,28 +16,30 @@
       "unique": true,
       "required": true
     },
-    "description": {
-      "type": "blocks"
-    },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "largeImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "description": {
+      "type": "text"
     }
   }
 }
