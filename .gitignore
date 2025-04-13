@@ -82,7 +82,7 @@ strapi_data
 ssl
 .idea
 nbproject
-public/uploads/*
+public/uploads
 !public/uploads/.gitkeep
 .tsbuildinfo
 .eslintcache
