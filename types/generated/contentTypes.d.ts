@@ -373,6 +373,7 @@ export interface ApiNutricionezArticleNutricionezArticle
   extends Struct.CollectionTypeSchema {
   collectionName: 'nutricionez_articles';
   info: {
+    description: '';
     displayName: '(nutricionez) articles';
     pluralName: 'nutricionez-articles';
     singularName: 'nutricionez-article';
@@ -381,10 +382,10 @@ export interface ApiNutricionezArticleNutricionezArticle
     draftAndPublish: true;
   };
   attributes: {
+    content: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Blocks;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -393,6 +394,7 @@ export interface ApiNutricionezArticleNutricionezArticle
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    publishedDate: Schema.Attribute.DateTime;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
