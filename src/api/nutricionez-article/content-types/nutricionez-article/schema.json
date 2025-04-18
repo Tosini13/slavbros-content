@@ -4,7 +4,8 @@
   "info": {
     "singularName": "nutricionez-article",
     "pluralName": "nutricionez-articles",
-    "displayName": "(nutricionez) articles"
+    "displayName": "(nutricionez) articles",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,23 +16,27 @@
       "unique": true,
       "required": true
     },
-    "description": {
+    "content": {
       "type": "blocks"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "user": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
+    },
+    "publishedDate": {
+      "type": "datetime"
     }
   }
 }
