@@ -1,61 +1,65 @@
-# 🚀 Getting started with Strapi
+# SlavBros Content Management System
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+A headless CMS built with Strapi that enables clients to manage their website content through a secure, multi-tenant system. Each client has their own account with access to manage only their specific content types and data.
 
-### `develop`
+## 🚀 Features
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+- Multi-tenant architecture with client-specific access control
+- Secure user authentication and permissions management
+- AWS S3 integration for media storage
+- TypeScript support for enhanced development experience
+- Docker support for easy deployment
+- Cloud deployment ready with Fly.io configuration
 
-```
+## 🛠️ Development
+
+### Prerequisites
+
+- Node.js >= 18.0.0
+- npm >= 6.0.0
+- Docker (optional, for containerized development)
+
+### Local Development
+
+Start your Strapi application with autoReload enabled:
+
+```bash
 npm run develop
-# or
-yarn develop
 ```
 
-### `start`
+### Docker Development
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
-
-```
-npm run start
-# or
-yarn start
-```
-
-### `build`
-
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
-
-```
-npm run build
-# or
-yarn build
+```bash
+docker-compose -f docker-compose.dev.yml up
 ```
 
 ## ⚙️ Deployment
 
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
+The application is configured for deployment on Fly.io, but can be deployed to other platforms as well.
 
+```bash
+flyctl deploy
 ```
-yarn strapi deploy
-```
+
+## 🔒 Security
+
+- Client data isolation through role-based access control
+- Secure API endpoints with proper authentication
+- Environment-based configuration management
 
 ## 📚 Learn more
 
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
+- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation
+- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials
+- [Strapi blog](https://strapi.io/blog) - Official Strapi blog
+- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general  improvements.
 
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
 
 ## ✨ Community
 
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
+- [Discord](https://discord.strapi.io) - Strapi community
+- [Forum](https://forum.strapi.io/) - Strapi forum
 
 ---
 
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+<sub>Built with ❤️ by SlavBros</sub>
