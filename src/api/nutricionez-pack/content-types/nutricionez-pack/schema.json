@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "nutricionez_packs",
+  "info": {
+    "singularName": "nutricionez-pack",
+    "pluralName": "nutricionez-packs",
+    "displayName": "(nutricionez) packs",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "features": {
+      "type": "component",
+      "repeatable": false,
+      "component": "offer.features",
+      "required": true
+    },
+    "price": {
+      "type": "component",
+      "repeatable": false,
+      "component": "offer.price",
+      "required": true
+    },
+    "recommended": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

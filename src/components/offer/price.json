@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_offer_prices",
+  "info": {
+    "displayName": "price",
+    "icon": "command",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "price": {
+      "type": "decimal",
+      "required": true,
+      "min": 0
+    },
+    "old_price": {
+      "type": "decimal",
+      "min": 0
+    }
+  }
+}

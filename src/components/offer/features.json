@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_offer_features",
+  "info": {
+    "displayName": "features",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "offer.feature-item"
+    }
+  }
+}

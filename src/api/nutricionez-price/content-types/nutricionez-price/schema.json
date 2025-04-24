@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "nutricionez_prices",
+  "info": {
+    "singularName": "nutricionez-price",
+    "pluralName": "nutricionez-prices",
+    "displayName": "(nutricionez) prices",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "component",
+      "repeatable": false,
+      "component": "offer.price",
+      "required": true
+    }
+  }
+}

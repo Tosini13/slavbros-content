@@ -409,6 +409,73 @@ export interface ApiNutricionezArticleNutricionezArticle
   };
 }
 
+export interface ApiNutricionezPackNutricionezPack
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'nutricionez_packs';
+  info: {
+    description: '';
+    displayName: '(nutricionez) packs';
+    pluralName: 'nutricionez-packs';
+    singularName: 'nutricionez-pack';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    features: Schema.Attribute.Component<'offer.features', false> &
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::nutricionez-pack.nutricionez-pack'
+    > &
+      Schema.Attribute.Private;
+    price: Schema.Attribute.Component<'offer.price', false> &
+      Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    recommended: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiNutricionezPriceNutricionezPrice
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'nutricionez_prices';
+  info: {
+    description: '';
+    displayName: '(nutricionez) prices';
+    pluralName: 'nutricionez-prices';
+    singularName: 'nutricionez-price';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::nutricionez-price.nutricionez-price'
+    > &
+      Schema.Attribute.Private;
+    price: Schema.Attribute.Component<'offer.price', false> &
+      Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiNutricionezServiceNutricionezService
   extends Struct.CollectionTypeSchema {
   collectionName: 'nutricionez_services';
@@ -957,6 +1024,8 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::nutricionez-article.nutricionez-article': ApiNutricionezArticleNutricionezArticle;
+      'api::nutricionez-pack.nutricionez-pack': ApiNutricionezPackNutricionezPack;
+      'api::nutricionez-price.nutricionez-price': ApiNutricionezPriceNutricionezPrice;
       'api::nutricionez-service.nutricionez-service': ApiNutricionezServiceNutricionezService;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
