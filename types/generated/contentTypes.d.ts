@@ -409,6 +409,36 @@ export interface ApiNutricionezArticleNutricionezArticle
   };
 }
 
+export interface ApiNutricionezFaqNutricionezFaq
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'nutricionez_faqs';
+  info: {
+    displayName: '(nutricionez) faq';
+    pluralName: 'nutricionez-faqs';
+    singularName: 'nutricionez-faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    answer: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::nutricionez-faq.nutricionez-faq'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    question: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiNutricionezPackNutricionezPack
   extends Struct.CollectionTypeSchema {
   collectionName: 'nutricionez_packs';
@@ -1024,6 +1054,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::nutricionez-article.nutricionez-article': ApiNutricionezArticleNutricionezArticle;
+      'api::nutricionez-faq.nutricionez-faq': ApiNutricionezFaqNutricionezFaq;
       'api::nutricionez-pack.nutricionez-pack': ApiNutricionezPackNutricionezPack;
       'api::nutricionez-price.nutricionez-price': ApiNutricionezPriceNutricionezPrice;
       'api::nutricionez-service.nutricionez-service': ApiNutricionezServiceNutricionezService;

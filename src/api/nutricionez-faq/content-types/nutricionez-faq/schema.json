@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "nutricionez_faqs",
+  "info": {
+    "singularName": "nutricionez-faq",
+    "pluralName": "nutricionez-faqs",
+    "displayName": "(nutricionez) faq"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "question": {
+      "type": "string"
+    },
+    "answer": {
+      "type": "text"
+    }
+  }
+}
