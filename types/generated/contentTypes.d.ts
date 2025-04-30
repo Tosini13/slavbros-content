@@ -413,7 +413,8 @@ export interface ApiNutricionezFaqNutricionezFaq
   extends Struct.CollectionTypeSchema {
   collectionName: 'nutricionez_faqs';
   info: {
-    displayName: '(nutricionez) faq';
+    description: '';
+    displayName: '(nutricionez) FAQ';
     pluralName: 'nutricionez-faqs';
     singularName: 'nutricionez-faq';
   };
@@ -500,6 +501,50 @@ export interface ApiNutricionezPriceNutricionezPrice
       Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiNutricionezReviewNutricionezReview
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'nutricionez_reviews';
+  info: {
+    description: '';
+    displayName: '(nutricionez) reviews';
+    pluralName: 'nutricionez-reviews';
+    singularName: 'nutricionez-review';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date: Schema.Attribute.Date;
+    description: Schema.Attribute.Text;
+    link: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'https://www.google.com/maps/place/Esther+Zamora+Nutrici%C3%B3n/@39.4077852,-0.3615113,12z/data=!4m8!3m7!1s0xd604fe97969240f:0xf9f2d291a30e542!8m2!3d39.4077852!4d-0.3615113!9m1!1b1!16s%2Fg%2F11sczxh4lx?hl=en-US&entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::nutricionez-review.nutricionez-review'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    rating: Schema.Attribute.Decimal &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 5;
+          min: 0;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<5>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1057,6 +1102,7 @@ declare module '@strapi/strapi' {
       'api::nutricionez-faq.nutricionez-faq': ApiNutricionezFaqNutricionezFaq;
       'api::nutricionez-pack.nutricionez-pack': ApiNutricionezPackNutricionezPack;
       'api::nutricionez-price.nutricionez-price': ApiNutricionezPriceNutricionezPrice;
+      'api::nutricionez-review.nutricionez-review': ApiNutricionezReviewNutricionezReview;
       'api::nutricionez-service.nutricionez-service': ApiNutricionezServiceNutricionezService;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
