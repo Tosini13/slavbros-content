@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "nutricionez_showcases",
+  "info": {
+    "singularName": "nutricionez-showcase",
+    "pluralName": "nutricionez-showcases",
+    "displayName": "(nutricionez) about me - showcase",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "description": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
