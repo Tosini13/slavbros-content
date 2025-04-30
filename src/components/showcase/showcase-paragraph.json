@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_showcase_showcase_paragraphs",
+  "info": {
+    "displayName": "showcase paragraph",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "description": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}

@@ -590,11 +590,10 @@ export interface ApiNutricionezServiceNutricionezService
 }
 
 export interface ApiNutricionezShowcaseNutricionezShowcase
-  extends Struct.CollectionTypeSchema {
+  extends Struct.SingleTypeSchema {
   collectionName: 'nutricionez_showcases';
   info: {
-    description: '';
-    displayName: '(nutricionez) about me - showcase';
+    displayName: '(nutricionez) showcase';
     pluralName: 'nutricionez-showcases';
     singularName: 'nutricionez-showcase';
   };
@@ -605,8 +604,15 @@ export interface ApiNutricionezShowcaseNutricionezShowcase
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
-    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    list: Schema.Attribute.Component<'showcase.showcase-paragraph', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 4;
+          min: 4;
+        },
+        number
+      >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

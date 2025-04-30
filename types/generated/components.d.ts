@@ -48,12 +48,26 @@ export interface OfferPrice extends Struct.ComponentSchema {
   };
 }
 
+export interface ShowcaseShowcaseParagraph extends Struct.ComponentSchema {
+  collectionName: 'components_showcase_showcase_paragraphs';
+  info: {
+    displayName: 'showcase paragraph';
+    icon: 'briefcase';
+  };
+  attributes: {
+    description: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'offer.feature-item': OfferFeatureItem;
       'offer.features': OfferFeatures;
       'offer.price': OfferPrice;
+      'showcase.showcase-paragraph': ShowcaseShowcaseParagraph;
     }
   }
 }

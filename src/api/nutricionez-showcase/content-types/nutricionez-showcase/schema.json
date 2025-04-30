@@ -1,29 +1,22 @@
 {
-  "kind": "collectionType",
+  "kind": "singleType",
   "collectionName": "nutricionez_showcases",
   "info": {
     "singularName": "nutricionez-showcase",
     "pluralName": "nutricionez-showcases",
-    "displayName": "(nutricionez) about me - showcase",
-    "description": ""
+    "displayName": "(nutricionez) showcase"
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
-    "description": {
-      "type": "text"
-    },
-    "icon": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+    "list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "showcase.showcase-paragraph",
+      "max": 4,
+      "min": 4,
+      "required": true
     }
   }
 }
