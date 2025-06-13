@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "nutricionez_heroes",
+  "info": {
+    "singularName": "nutricionez-hero",
+    "pluralName": "nutricionez-heroes",
+    "displayName": "(nutricionez) hero"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "subtitle": {
+      "type": "string"
+    },
+    "nutricionez_review": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::nutricionez-review.nutricionez-review"
+    }
+  }
+}
