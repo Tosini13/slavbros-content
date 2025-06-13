@@ -382,6 +382,10 @@ export interface ApiNutricionezArticleNutricionezArticle
     draftAndPublish: true;
   };
   attributes: {
+    author: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
     content: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -402,10 +406,6 @@ export interface ApiNutricionezArticleNutricionezArticle
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    user: Schema.Attribute.Relation<
-      'oneToOne',
-      'plugin::users-permissions.user'
-    >;
   };
 }
 
@@ -434,6 +434,39 @@ export interface ApiNutricionezFaqNutricionezFaq
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     question: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiNutricionezHeroNutricionezHero
+  extends Struct.SingleTypeSchema {
+  collectionName: 'nutricionez_heroes';
+  info: {
+    displayName: '(nutricionez) hero';
+    pluralName: 'nutricionez-heroes';
+    singularName: 'nutricionez-hero';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::nutricionez-hero.nutricionez-hero'
+    > &
+      Schema.Attribute.Private;
+    nutricionez_review: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::nutricionez-review.nutricionez-review'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -567,7 +600,7 @@ export interface ApiNutricionezServiceNutricionezService
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.Blocks;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     largeImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
@@ -1081,7 +1114,6 @@ export interface PluginUsersPermissionsUser
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     blocked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
@@ -1095,6 +1127,8 @@ export interface PluginUsersPermissionsUser
       Schema.Attribute.SetMinMaxLength<{
         minLength: 6;
       }>;
+    firstName: Schema.Attribute.String;
+    lastName: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1137,6 +1171,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::nutricionez-article.nutricionez-article': ApiNutricionezArticleNutricionezArticle;
       'api::nutricionez-faq.nutricionez-faq': ApiNutricionezFaqNutricionezFaq;
+      'api::nutricionez-hero.nutricionez-hero': ApiNutricionezHeroNutricionezHero;
       'api::nutricionez-pack.nutricionez-pack': ApiNutricionezPackNutricionezPack;
       'api::nutricionez-price.nutricionez-price': ApiNutricionezPriceNutricionezPrice;
       'api::nutricionez-review.nutricionez-review': ApiNutricionezReviewNutricionezReview;

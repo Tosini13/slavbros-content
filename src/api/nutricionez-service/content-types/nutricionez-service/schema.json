@@ -38,13 +38,13 @@
         "audios"
       ]
     },
-    "description": {
-      "type": "text"
-    },
     "slug": {
       "type": "uid",
       "targetField": "title",
       "required": true
+    },
+    "description": {
+      "type": "blocks"
     }
   }
 }
