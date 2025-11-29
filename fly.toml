@@ -9,23 +9,23 @@ primary_region = 'mad'
 [build]
 
 [env]
-  DATABASE_CLIENT = 'sqlite'
-  DATABASE_FILENAME = '/public/uploads/data/strapi.db'
-  
+DATABASE_CLIENT = 'sqlite'
+DATABASE_FILENAME = '/public/uploads/data/strapi.db'
+
 [[mounts]]
-  source = 'cms_data'
-  destination = '/public/uploads'
+source = 'cms_data'
+destination = '/public/uploads'
 
 [http_service]
-  internal_port = 1337
-  force_https = true
-  auto_stop_machines = 'off'
-  auto_start_machines = true
-  min_machines_running = 0
-  processes = ['app']
+internal_port = 1337
+force_https = true
+auto_stop_machines = "stop"
+auto_start_machines = true
+min_machines_running = 0
+processes = ['app']
 
 [[vm]]
-  memory = '1gb'
-  cpu_kind = 'shared'
-  cpus = 1
-  memory_mb = 1024
+memory = '1gb'
+cpu_kind = 'shared'
+cpus = 1
+memory_mb = 1024
